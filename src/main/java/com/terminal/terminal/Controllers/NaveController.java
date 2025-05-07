@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController //dico: questa classe è un controller REST e i metodi restituiranno auto la risposta come corpo della risposta HTTP
-@RequestMapping("/api/nave") //tutte le richieste HTTP per gestire gli utenti avranno come prefisso /api/nave
+@RequestMapping("/api/nave") //tutte le richieste HTTP per gestire le navi avranno come prefisso /api/nave
 public class NaveController 
 {
 	@Autowired
