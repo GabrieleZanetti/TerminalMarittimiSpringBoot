@@ -9,8 +9,8 @@ import java.util.Optional;
 
 @RestController //dico: questa classe è un controller REST e i metodi restituiranno auto la risposta come corpo della risposta HTTP
 @RequestMapping("/api/users") //tutte le richieste HTTP per gestire gli utenti avranno come prefisso /api/users
-public class UserController {
-
+public class UserController 
+{
     @Autowired
     private UserService service;
 

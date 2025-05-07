@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserService {
-
+public class UserService 
+{
     @Autowired	//Skippo il costruttore e crea un'istanza di UserRepository automaticamente
     private UserRepository repo;
 
