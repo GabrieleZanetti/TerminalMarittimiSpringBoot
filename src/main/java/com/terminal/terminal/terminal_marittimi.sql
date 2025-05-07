@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 05, 2025 alle 18:08
+-- Creato il: Mag 07, 2025 alle 18:49
 -- Versione del server: 10.4.32-MariaDB
 -- Versione PHP: 8.2.12
 
@@ -53,7 +53,8 @@ CREATE TABLE `buono` (
 --
 
 CREATE TABLE `camion` (
-  `targa` char(20) NOT NULL
+  `targa` char(20) NOT NULL,
+  `id_autista` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
@@ -201,7 +202,8 @@ ALTER TABLE `buono`
 -- Indici per le tabelle `camion`
 --
 ALTER TABLE `camion`
-  ADD PRIMARY KEY (`targa`);
+  ADD PRIMARY KEY (`targa`),
+  ADD KEY `id_autista` (`id_autista`);
 
 --
 -- Indici per le tabelle `cliente`
@@ -301,6 +303,12 @@ ALTER TABLE `autista`
 ALTER TABLE `buono`
   ADD CONSTRAINT `buono_ibfk_1` FOREIGN KEY (`id_polizza`) REFERENCES `polizza` (`ID`),
   ADD CONSTRAINT `buono_ibfk_2` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`ID`);
+
+--
+-- Limiti per la tabella `camion`
+--
+ALTER TABLE `camion`
+  ADD CONSTRAINT `camion_ibfk_1` FOREIGN KEY (`id_autista`) REFERENCES `autista` (`ID`) ON UPDATE CASCADE;
 
 --
 -- Limiti per la tabella `cliente`
