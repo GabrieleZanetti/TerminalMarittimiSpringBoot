@@ -10,6 +10,7 @@ public class Nave
     @GeneratedValue(strategy = GenerationType.IDENTITY) //Auto-incrementa l'ID nel DB
     private Long id;
 
+	@Column(name = "nome")
 	private String nome;
 
 	//Getters & Setters

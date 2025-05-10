@@ -12,8 +12,12 @@ public class Fornitore
 	@GeneratedValue(strategy = GenerationType.IDENTITY) //Auto-incrementa l'ID nel DB
 	private Long id;
 
+	@Column(name = "nome")
 	private String nome;
+
+	@Column(name = "giorni_gratis")
 	private int giorni_gratis;
+
 	@Column(name = "tariffa", precision = 10, scale = 2) //Definisco la colonna tariffa come DECIMAL(10,2)
 	private BigDecimal tariffa; //Utilizzo BigDecimal per gestire i numeri decimali in modo preciso
 
