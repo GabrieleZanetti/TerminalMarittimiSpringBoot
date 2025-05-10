@@ -17,7 +17,7 @@ public class CamionController
 	@Autowired 
 	private CamionService service; 
 
-	@GetMapping	//Questo metodo gestisce la lettura di tutti i fornitori
+	@GetMapping	//Questo metodo gestisce la lettura di tutti i camion
     public List<Camion> getAll() 
 	{
         return service.getAll();

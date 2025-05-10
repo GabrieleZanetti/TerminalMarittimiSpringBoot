@@ -20,6 +20,18 @@ public class UserController
         return service.getAll();
     }
 
+    @GetMapping("/{nome}")
+    public Optional<User> getBy(@PathVariable String nome)
+    {
+        return service.findByUsername(nome);
+    }
+
+    @GetMapping("/{nome}/{email}")
+    public Optional<User> getBy(@PathVariable String nome,@PathVariable String email)
+    {
+        return service.findByUsernameAndEmail(nome,email);
+    }
+
 	//Il decoratore @PathVariable estrae i parametri dinamici dall'URL di una richiesta HTTP e passarli come argomenti del metodo
     @GetMapping("/{id}")	//Questo metodo gestisce la lettura di un utente specifico
     public Optional<User> getById(@PathVariable Long id) 	
