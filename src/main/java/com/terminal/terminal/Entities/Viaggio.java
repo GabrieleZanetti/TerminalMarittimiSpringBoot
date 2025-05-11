@@ -19,14 +19,15 @@ public class Viaggio
 	@Column(name = "linea")
     private String linea;
 
-	@Column(name = "porto_partenza")
+    @OneToOne
+	@JoinColumn(name = "porto_partenza", referencedColumnName = "id", nullable = false)
     private Porto portoPartenza;
 
-	@Column(name = "porto_arrivo")
+    @OneToOne
+	@JoinColumn(name = "porto_arrivo", referencedColumnName = "id", nullable = false)
     private Porto portoArrivo;
 
 	@ManyToOne
-	@Column(name = "id_nave")
 	@JoinColumn(name = "id_nave", referencedColumnName = "id", nullable = false)
     private Nave nave;
 

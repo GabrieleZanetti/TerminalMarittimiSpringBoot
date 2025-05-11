@@ -11,7 +11,6 @@ public class Camion
     private String targa;
 
     @OneToOne
-    @Column(name = "id_autista")
     @JoinColumn(name = "id_autista", referencedColumnName = "id", unique = true, nullable = false)
     private Autista autista;
 

@@ -40,6 +40,5 @@ public class CamionController
     public void delete(@PathVariable String targa) 
 	{
         service.delete(targa);
-    }
-	
+    }	
 }

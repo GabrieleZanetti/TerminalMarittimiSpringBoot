@@ -14,7 +14,6 @@ public class Autista {
     private String nome;
 
     @OneToOne	//La relazione è uno a uno
-    @Column(name = "id_user")
     @JoinColumn(name = "id_user", referencedColumnName = "id", unique = true, nullable = false)	//FK del campo id_user che va sull'id del tipo dell'oggetto User, unique e !nullable
     private User user;
 

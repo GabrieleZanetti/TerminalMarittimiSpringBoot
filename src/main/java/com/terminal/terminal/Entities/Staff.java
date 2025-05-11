@@ -19,7 +19,6 @@ public class Staff
     private Lavoro lavoro;
 
 	@OneToOne
-    @Column(name = "id_user")
     @JoinColumn(name = "id_user", referencedColumnName = "id", unique = true, nullable = false)	
     private User user;
 	
