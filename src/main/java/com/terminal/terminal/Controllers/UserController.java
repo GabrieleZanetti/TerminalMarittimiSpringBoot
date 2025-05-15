@@ -45,7 +45,7 @@ public class UserController
         return service.getById(id);
     }
 
-    @PostMapping	//Questo metodo gestisce la creazione di un nuovo utente
+    @PostMapping("/register")	//Questo metodo gestisce la creazione di un nuovo utente
     public User create(@RequestBody User user) 
 	{
         return service.create(user);
