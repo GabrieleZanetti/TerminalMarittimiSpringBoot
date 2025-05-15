@@ -3,9 +3,13 @@ package com.terminal.terminal.Controllers;
 import com.terminal.terminal.Entities.User;
 import com.terminal.terminal.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+
 
 @RestController //dico: questa classe è un controller REST e i metodi restituiranno auto la risposta come corpo della risposta HTTP
 @RequestMapping("/api/users") //tutte le richieste HTTP per gestire gli utenti avranno come prefisso /api/users
@@ -19,6 +23,8 @@ public class UserController
 	{
         return service.getAll();
     }
+
+    //@GetMapping("")
 
     @GetMapping("/{nome}")
     public Optional<User> getBy(@PathVariable String nome)
@@ -44,6 +50,22 @@ public class UserController
 	{
         return service.create(user);
     }
+
+    @PostMapping("/login")
+    public Map<String, Object> login(@RequestBody User user) 
+    {
+        Optional<User> result = service.login(user);
+        if (result.isPresent()) 
+        {
+            return Map.of("success", true, "user", result.get());
+        } 
+        else 
+        {
+            return Map.of("success", false, "message", "Username o password errati");
+        }
+    }
+
+
 
     @DeleteMapping("/{id}")	//Questo metodo gestisce la cancellazione di un utente specifico
     public void delete(@PathVariable Long id) 

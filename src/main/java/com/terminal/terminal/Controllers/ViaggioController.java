@@ -32,7 +32,7 @@ public class ViaggioController
         return service.findByPortoPartenzaId(id);
     }
 
-	 @GetMapping("/{id}/arrivo")
+	@GetMapping("/{id}/arrivo")
     public Optional<Viaggio> getByPortoArrivo(@PathVariable Long id)
     {
         return service.findByPortoArrivoId(id);

@@ -42,4 +42,20 @@ public class UserService
 	{
         return repo.findByUsernameAndEmail(username,email);
     }
+
+    public Optional<User> login(User user) 
+    {
+        String password = user.getPassword();
+
+        String input = (user.getUsername() != null && !user.getUsername().isEmpty())
+                    ? user.getUsername()
+                    : (user.getEmail() != null && !user.getEmail().isEmpty())
+                        ? user.getEmail()
+                        : null;
+
+        if (input == null) 
+            return Optional.empty();
+
+        return repo.login(input, password);
+    }
 }
